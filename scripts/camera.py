@@ -2,6 +2,7 @@ import logging
 import time
 
 #Import classes
+
 from util import *
 from camconfig import Configurator
 from picamera import PiCamera
