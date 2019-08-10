@@ -48,3 +48,33 @@ ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or googl
 2019-08-10 17:24:31,463 INFO BackgroundProcessor.enqueue(): Number of data sets in 'data_queue' = [1]
 2019-08-10 17:24:31,465 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [1]
 2019-08-10 17:24:31,465 INFO Terminating thread...
+2019-08-10 18:18:00,524 INFO --------------------------------
+2019-08-10 18:18:00,525 INFO ------STARTING PHOTOBOOTH-------
+2019-08-10 18:18:00,525 INFO --------------------------------
+2019-08-10 18:18:00,525 INFO sys.path=[['/home/pi/bin', '/usr/lib/python2.7', '/usr/lib/python2.7/plat-arm-linux-gnueabihf', '/usr/lib/python2.7/lib-tk', '/usr/lib/python2.7/lib-old', '/usr/lib/python2.7/lib-dynload', '/usr/local/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages/PILcompat', '/home/pi/git/photobooth', '/home/pi/git/photobooth/scripts', '/home/pi/git/photobooth/coregui', '/home/pi/git/photobooth/corecam', '/home/pi/git/photobooth/uploaders', '/home/pi/git/photobooth/auth']]
+2019-08-10 18:18:04,412 INFO In startBooth()...
+2019-08-10 18:18:09,274 INFO Calling CountdownText()...
+2019-08-10 18:18:11,298 INFO Back from CountdownText()
+2019-08-10 18:18:13,306 INFO In BoothCamera.capture(): resolution= 3280x2464, ISO=200, sharpness=60
+2019-08-10 18:18:14,254 INFO In archiveImage()...
+2019-08-10 18:18:14,255 INFO archive_dir: /home/pi/git/photobooth/images
+2019-08-10 18:18:14,255 INFO image_filename.ext: picture.jpg
+2019-08-10 18:18:14,256 INFO next_idx: 25142378
+2019-08-10 18:18:14,256 INFO new_filename: /home/pi/git/photobooth/images/picture_25142378.jpg
+2019-08-10 18:18:14,356 INFO In archiveImage(): Exiting...
+2019-08-10 18:18:14,381 INFO In displayImage():...
+2019-08-10 18:18:14,682 INFO Exiting displayImage()
+2019-08-10 18:18:14,683 INFO Upload to Picasa OFF in configuration
+2019-08-10 18:18:14,683 INFO Uploading to Google Drive...
+2019-08-10 18:18:14,683 INFO GoogleDriveUploader constructor: IN
+2019-08-10 18:18:14,684 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [0]
+2019-08-10 18:18:14,684 INFO Authenticator: __init__(): client_secrets=[client_secrets.json], pickle_filename=[saved_creds.pickle]
+2019-08-10 18:18:14,685 INFO BackgroundProcessor.run(): Nothing to upload; going to get some zzzzs
+2019-08-10 18:18:14,685 ERROR !!EXCEPTION!! In startBooth()!
+2019-08-10 18:18:14,686 ERROR -------------------------------------------------
+2019-08-10 18:18:14,686 ERROR <type 'exceptions.Exception'>
+2019-08-10 18:18:14,686 ERROR ('Authenticator: __init__(): Unable to find file: [client_secrets.json]',)
+2019-08-10 18:18:14,687 ERROR Authenticator: __init__(): Unable to find file: [client_secrets.json]
+2019-08-10 18:18:14,687 ERROR -------------------------------------------------
+2019-08-10 18:18:14,688 ERROR [('/home/pi/git/photobooth/coregui/main.py', 182, 'startBooth', 'uploadImages(picsarray)'), ('/home/pi/git/photobooth/uploaders/upload.py', 31, 'uploadImages', 'drive_uploader = GoogleDriveUploader.instance()'), ('/home/pi/git/photobooth/uploaders/googledriveuploader.py', 31, 'instance', 'GoogleDriveUploader()'), ('/home/pi/git/photobooth/uploaders/googledriveuploader.py', 43, '__init__', 'self.auth = Authenticator("client_secrets.json", "saved_creds.pickle")'), ('/home/pi/git/photobooth/auth/auth.py', 39, '__init__', 'raise Exception ("Authenticator: __init__(): Unable to find file: [%s]"%client_secrets_filename)')]
+2019-08-10 18:18:17,015 INFO onClose(): Cleaning up uploaders...
