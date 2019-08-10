@@ -1,0 +1,320 @@
+2019-08-04 18:45:39,605 INFO --------------------------------
+2019-08-04 18:45:39,605 INFO ------STARTING PHOTOBOOTH-------
+2019-08-04 18:45:39,606 INFO --------------------------------
+2019-08-04 18:45:39,606 INFO sys.path=[['/home/pi/bin', '/usr/lib/python2.7', '/usr/lib/python2.7/plat-arm-linux-gnueabihf', '/usr/lib/python2.7/lib-tk', '/usr/lib/python2.7/lib-old', '/usr/lib/python2.7/lib-dynload', '/usr/local/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages/PILcompat', '/home/pi/git/photobooth', '/home/pi/git/photobooth/scripts', '/home/pi/git/photobooth/coregui', '/home/pi/git/photobooth/corecam']]
+2019-08-04 18:45:41,710 INFO In startBooth()...
+2019-08-04 18:45:46,639 INFO Calling CountdownText()...
+2019-08-04 18:45:48,683 INFO Back from CountdownText()
+2019-08-04 18:45:50,689 INFO In BoothCamera.capture(): resolution= 3280x2464, ISO=200, sharpness=60
+2019-08-04 18:45:51,632 INFO In archiveImage()...
+2019-08-04 18:45:51,633 INFO archive_dir: /home/pi/git/photobooth/images
+2019-08-04 18:45:51,634 INFO image_filename.ext: picture.jpg
+2019-08-04 18:45:51,634 INFO next_idx: 24625635
+2019-08-04 18:45:51,635 INFO new_filename: /home/pi/git/photobooth/images/picture_24625635.jpg
+2019-08-04 18:45:51,699 INFO In archiveImage(): Exiting...
+2019-08-04 18:45:51,723 INFO In displayImage():...
+2019-08-04 18:45:51,966 INFO Exiting displayImage()
+2019-08-04 18:45:51,967 INFO Upload to Picasa OFF in configuration
+2019-08-04 18:45:51,967 INFO Uploading to Google Drive...
+2019-08-04 18:45:51,968 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [0]
+2019-08-04 18:45:51,969 INFO BackgroundProcessor.run(): Nothing to upload; going to get some zzzzs
+2019-08-04 18:45:51,970 ERROR !!EXCEPTION!! In startBooth()!
+2019-08-04 18:45:51,970 ERROR -------------------------------------------------
+2019-08-04 18:45:51,970 ERROR <class 'pydrive.settings.InvalidConfigError'>
+2019-08-04 18:45:51,971 ERROR ("Invalid client secrets file ('Error opening file', 'client_secrets.json', 'No such file or directory', 2)",)
+2019-08-04 18:45:51,971 ERROR Invalid client secrets file ('Error opening file', 'client_secrets.json', 'No such file or directory', 2)
+2019-08-04 18:45:51,971 ERROR -------------------------------------------------
+2019-08-04 18:45:51,975 ERROR [('/home/pi/git/photobooth/coregui/main.py', 182, 'startBooth', 'uploadImages(picsarray)'), ('/home/pi/git/photobooth/scripts/upload.py', 31, 'uploadImages', 'drive_uploader = GoogleDriveUploader.instance()'), ('/home/pi/git/photobooth/scripts/googledriveuploader.py', 20, 'instance', 'GoogleDriveUploader()'), ('/home/pi/git/photobooth/scripts/googledriveuploader.py', 30, '__init__', 'self.gauth.LocalWebserverAuth()'), ('/usr/local/lib/python2.7/dist-packages/pydrive/auth.py', 113, '_decorated', 'self.GetFlow()'), ('/usr/local/lib/python2.7/dist-packages/pydrive/auth.py', 443, 'GetFlow', 'self.LoadClientConfig()'), ('/usr/local/lib/python2.7/dist-packages/pydrive/auth.py', 366, 'LoadClientConfig', 'self.LoadClientConfigFile()'), ('/usr/local/lib/python2.7/dist-packages/pydrive/auth.py', 388, 'LoadClientConfigFile', "raise InvalidConfigError('Invalid client secrets file %s' % error)")]
+2019-08-04 18:45:56,689 INFO onClose(): Cleaning up uploaders...
+2019-08-04 19:09:53,002 INFO --------------------------------
+2019-08-04 19:09:53,004 INFO ------STARTING PHOTOBOOTH-------
+2019-08-04 19:09:53,004 INFO --------------------------------
+2019-08-04 19:09:53,004 INFO sys.path=[['/home/pi/bin', '/usr/lib/python2.7', '/usr/lib/python2.7/plat-arm-linux-gnueabihf', '/usr/lib/python2.7/lib-tk', '/usr/lib/python2.7/lib-old', '/usr/lib/python2.7/lib-dynload', '/usr/local/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages/PILcompat', '/home/pi/git/photobooth', '/home/pi/git/photobooth/scripts', '/home/pi/git/photobooth/coregui', '/home/pi/git/photobooth/corecam']]
+2019-08-04 19:09:55,935 INFO In startBooth()...
+2019-08-04 19:10:00,821 INFO Calling CountdownText()...
+2019-08-04 19:10:02,863 INFO Back from CountdownText()
+2019-08-04 19:10:04,870 INFO In BoothCamera.capture(): resolution= 3280x2464, ISO=200, sharpness=60
+2019-08-04 19:10:06,394 INFO In archiveImage()...
+2019-08-04 19:10:06,395 INFO archive_dir: /home/pi/git/photobooth/images
+2019-08-04 19:10:06,396 INFO image_filename.ext: picture.jpg
+2019-08-04 19:10:06,396 INFO next_idx: 24627090
+2019-08-04 19:10:06,397 INFO new_filename: /home/pi/git/photobooth/images/picture_24627090.jpg
+2019-08-04 19:10:06,446 INFO In archiveImage(): Exiting...
+2019-08-04 19:10:06,473 INFO In displayImage():...
+2019-08-04 19:10:06,720 INFO Exiting displayImage()
+2019-08-04 19:10:06,722 INFO Upload to Picasa OFF in configuration
+2019-08-04 19:10:06,722 INFO Uploading to Google Drive...
+2019-08-04 19:10:06,723 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [0]
+2019-08-04 19:10:06,724 INFO BackgroundProcessor.run(): Nothing to upload; going to get some zzzzs
+2019-08-04 19:11:08,388 INFO Successfully retrieved access token
+2019-08-04 19:11:08,410 WARNING file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python2.7/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+2019-08-04 19:11:08,429 INFO URL being requested: GET https://www.googleapis.com/discovery/v1/apis/drive/v2/rest
+2019-08-04 19:11:09,011 INFO In BackgroundProcessor.kickOff()
+2019-08-04 19:11:09,012 INFO GoogleDriveUploader.preWorkFunction()
+2019-08-04 19:11:09,012 INFO BackgroundProcessor.enqueue(): Number of data sets in 'data_queue' = [1]
+2019-08-04 19:11:09,013 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [1]
+2019-08-04 19:11:09,013 INFO GoogleDriveUploader.workFunction()...
+2019-08-04 19:11:09,158 INFO URL being requested: GET https://www.googleapis.com/drive/v2/files?q=%27root%27+in+parents+and+trashed%3Dfalse&alt=json&maxResults=1000
+2019-08-04 19:11:09,158 INFO In BackgroundProcessors.kickOff() - Exiting.
+2019-08-04 19:11:10,413 INFO GoogleDriveUploader.workFunction(): Uploading to folder: [NY-2018-2019], file: [/home/pi/git/photobooth/images/picture_24627090.jpg]...
+2019-08-04 19:11:10,475 INFO URL being requested: POST https://www.googleapis.com/upload/drive/v2/files?uploadType=resumable&alt=json
+2019-08-04 19:11:14,171 INFO Exiting startBooth()
+2019-08-04 19:11:15,543 INFO GoogleDriveUploader.workFunction(): DONE with [/home/pi/git/photobooth/images/picture_24627090.jpg]
+2019-08-04 19:11:15,552 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [0]
+2019-08-04 19:11:15,557 INFO BackgroundProcessor.run(): Nothing to upload; going to get some zzzzs
+2019-08-04 19:11:32,603 INFO onClose(): Cleaning up uploaders...
+2019-08-04 19:11:32,605 INFO BackgroundProcessor.enqueue(): Number of data sets in 'data_queue' = [1]
+2019-08-04 19:11:32,607 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [1]
+2019-08-04 19:11:32,608 INFO Terminating thread...
+2019-08-04 19:22:10,067 INFO --------------------------------
+2019-08-04 19:22:10,069 INFO ------STARTING PHOTOBOOTH-------
+2019-08-04 19:22:10,069 INFO --------------------------------
+2019-08-04 19:22:10,069 INFO sys.path=[['/home/pi/bin', '/usr/lib/python2.7', '/usr/lib/python2.7/plat-arm-linux-gnueabihf', '/usr/lib/python2.7/lib-tk', '/usr/lib/python2.7/lib-old', '/usr/lib/python2.7/lib-dynload', '/usr/local/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages/PILcompat', '/home/pi/git/photobooth', '/home/pi/git/photobooth/scripts', '/home/pi/git/photobooth/coregui', '/home/pi/git/photobooth/corecam']]
+2019-08-04 19:22:14,090 INFO In startBooth()...
+2019-08-04 19:22:18,948 INFO Calling CountdownText()...
+2019-08-04 19:22:20,979 INFO Back from CountdownText()
+2019-08-04 19:22:23,012 INFO In BoothCamera.capture(): resolution= 3280x2464, ISO=200, sharpness=60
+2019-08-04 19:22:24,013 INFO In archiveImage()...
+2019-08-04 19:22:24,015 INFO archive_dir: /home/pi/git/photobooth/images
+2019-08-04 19:22:24,015 INFO image_filename.ext: picture.jpg
+2019-08-04 19:22:24,016 INFO next_idx: 24627828
+2019-08-04 19:22:24,017 INFO new_filename: /home/pi/git/photobooth/images/picture_24627828.jpg
+2019-08-04 19:22:24,084 INFO In archiveImage(): Exiting...
+2019-08-04 19:22:24,110 INFO In displayImage():...
+2019-08-04 19:22:24,363 INFO Exiting displayImage()
+2019-08-04 19:22:24,364 INFO Upload to Picasa OFF in configuration
+2019-08-04 19:22:24,364 INFO Uploading to Google Drive...
+2019-08-04 19:22:24,365 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [0]
+2019-08-04 19:22:24,366 INFO BackgroundProcessor.run(): Nothing to upload; going to get some zzzzs
+2019-08-04 19:23:23,346 INFO Successfully retrieved access token
+2019-08-04 19:23:23,362 WARNING file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python2.7/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+2019-08-04 19:23:23,367 INFO URL being requested: GET https://www.googleapis.com/discovery/v1/apis/drive/v2/rest
+2019-08-04 19:23:23,891 INFO In BackgroundProcessor.kickOff()
+2019-08-04 19:23:23,892 INFO GoogleDriveUploader.preWorkFunction()
+2019-08-04 19:23:23,892 INFO BackgroundProcessor.enqueue(): Number of data sets in 'data_queue' = [1]
+2019-08-04 19:23:23,893 INFO In BackgroundProcessors.kickOff() - Exiting.
+2019-08-04 19:23:23,893 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [1]
+2019-08-04 19:23:23,893 INFO GoogleDriveUploader.workFunction()...
+2019-08-04 19:23:24,037 INFO URL being requested: GET https://www.googleapis.com/drive/v2/files?q=%27root%27+in+parents+and+trashed%3Dfalse&alt=json&maxResults=1000
+2019-08-04 19:23:25,455 INFO GoogleDriveUploader.workFunction(): Uploading to folder: [NY-2018-2019], file: [/home/pi/git/photobooth/images/picture_24627828.jpg]...
+2019-08-04 19:23:25,519 INFO URL being requested: POST https://www.googleapis.com/upload/drive/v2/files?uploadType=resumable&alt=json
+2019-08-04 19:23:28,902 INFO Exiting startBooth()
+2019-08-04 19:23:30,350 INFO GoogleDriveUploader.workFunction(): DONE with [/home/pi/git/photobooth/images/picture_24627828.jpg]
+2019-08-04 19:23:30,361 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [0]
+2019-08-04 19:23:30,363 INFO BackgroundProcessor.run(): Nothing to upload; going to get some zzzzs
+2019-08-04 19:23:31,016 INFO onClose(): Cleaning up uploaders...
+2019-08-04 19:23:31,017 INFO BackgroundProcessor.enqueue(): Number of data sets in 'data_queue' = [1]
+2019-08-04 19:23:31,018 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [1]
+2019-08-04 19:23:31,019 INFO Terminating thread...
+2019-08-08 21:49:00,261 INFO --------------------------------
+2019-08-08 21:49:00,263 INFO ------STARTING PHOTOBOOTH-------
+2019-08-08 21:49:00,263 INFO --------------------------------
+2019-08-08 21:49:00,264 INFO sys.path=[['/home/pi/bin', '/usr/lib/python2.7', '/usr/lib/python2.7/plat-arm-linux-gnueabihf', '/usr/lib/python2.7/lib-tk', '/usr/lib/python2.7/lib-old', '/usr/lib/python2.7/lib-dynload', '/usr/local/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages/PILcompat', '/home/pi/git/photobooth', '/home/pi/git/photobooth/scripts', '/home/pi/git/photobooth/coregui', '/home/pi/git/photobooth/corecam']]
+2019-08-08 21:49:03,922 INFO In startBooth()...
+2019-08-08 21:49:09,677 INFO Calling CountdownText()...
+2019-08-08 21:49:11,709 INFO Back from CountdownText()
+2019-08-08 21:49:13,715 INFO In BoothCamera.capture(): resolution= 3280x2464, ISO=200, sharpness=60
+2019-08-08 21:49:15,134 INFO In archiveImage()...
+2019-08-08 21:49:15,135 INFO archive_dir: /home/pi/git/photobooth/images
+2019-08-08 21:49:15,136 INFO image_filename.ext: picture.jpg
+2019-08-08 21:49:15,137 INFO next_idx: 24982239
+2019-08-08 21:49:15,138 INFO new_filename: /home/pi/git/photobooth/images/picture_24982239.jpg
+2019-08-08 21:49:15,233 INFO In archiveImage(): Exiting...
+2019-08-08 21:49:15,265 INFO In displayImage():...
+2019-08-08 21:49:15,526 INFO Exiting displayImage()
+2019-08-08 21:49:15,527 INFO Upload to Picasa OFF in configuration
+2019-08-08 21:49:15,527 INFO Uploading to Google Drive...
+2019-08-08 21:49:15,528 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [0]
+2019-08-08 21:49:15,529 INFO BackgroundProcessor.run(): Nothing to upload; going to get some zzzzs
+2019-08-08 21:50:45,658 INFO "GET /?state=BRajzLTNswc7EEdxhpFUSk8bpTujzS&code=4/nQHS4LKgUXv2Q3GwC3tOs5vp8zp_-5O4Kd5_KcrlUZ7Zcxw5SrNS6cpbfkxL136nNCcSiNx48295plCoMKeVW74&scope=https://www.googleapis.com/auth/drive HTTP/1.1" 200 65
+2019-08-08 21:50:46,395 WARNING file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python2.7/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+2019-08-08 21:50:46,398 INFO URL being requested: GET https://www.googleapis.com/discovery/v1/apis/drive/v3/rest
+2019-08-08 21:50:46,698 INFO In BackgroundProcessor.kickOff()
+2019-08-08 21:50:46,700 INFO GoogleDriveUploader.preWorkFunction()
+2019-08-08 21:50:46,701 INFO BackgroundProcessor.enqueue(): Number of data sets in 'data_queue' = [1]
+2019-08-08 21:50:46,702 INFO In BackgroundProcessors.kickOff() - Exiting.
+2019-08-08 21:50:46,703 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [1]
+2019-08-08 21:50:46,703 INFO GoogleDriveUploader.workFunction()...
+2019-08-08 21:50:51,719 INFO Exiting startBooth()
+2019-08-08 21:50:55,702 INFO onClose(): Cleaning up uploaders...
+2019-08-08 21:50:55,703 INFO BackgroundProcessor.enqueue(): Number of data sets in 'data_queue' = [2]
+2019-08-08 21:52:22,048 INFO --------------------------------
+2019-08-08 21:52:22,048 INFO ------STARTING PHOTOBOOTH-------
+2019-08-08 21:52:22,049 INFO --------------------------------
+2019-08-08 21:52:22,049 INFO sys.path=[['/home/pi/bin', '/usr/lib/python2.7', '/usr/lib/python2.7/plat-arm-linux-gnueabihf', '/usr/lib/python2.7/lib-tk', '/usr/lib/python2.7/lib-old', '/usr/lib/python2.7/lib-dynload', '/usr/local/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages/PILcompat', '/home/pi/git/photobooth', '/home/pi/git/photobooth/scripts', '/home/pi/git/photobooth/coregui', '/home/pi/git/photobooth/corecam']]
+2019-08-08 21:52:24,774 INFO In startBooth()...
+2019-08-08 21:52:29,643 INFO Calling CountdownText()...
+2019-08-08 21:52:31,683 INFO Back from CountdownText()
+2019-08-08 21:52:33,690 INFO In BoothCamera.capture(): resolution= 3280x2464, ISO=200, sharpness=60
+2019-08-08 21:52:34,685 INFO In archiveImage()...
+2019-08-08 21:52:34,687 INFO archive_dir: /home/pi/git/photobooth/images
+2019-08-08 21:52:34,688 INFO image_filename.ext: picture.jpg
+2019-08-08 21:52:34,688 INFO next_idx: 24982438
+2019-08-08 21:52:34,689 INFO new_filename: /home/pi/git/photobooth/images/picture_24982438.jpg
+2019-08-08 21:52:35,142 INFO In archiveImage(): Exiting...
+2019-08-08 21:52:35,182 INFO In displayImage():...
+2019-08-08 21:52:35,415 INFO Exiting displayImage()
+2019-08-08 21:52:35,416 INFO Upload to Picasa OFF in configuration
+2019-08-08 21:52:35,416 INFO Uploading to Google Drive...
+2019-08-08 21:52:35,417 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [0]
+2019-08-08 21:52:35,418 INFO BackgroundProcessor.run(): Nothing to upload; going to get some zzzzs
+2019-08-08 21:52:35,428 WARNING file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python2.7/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+2019-08-08 21:52:35,430 INFO URL being requested: GET https://www.googleapis.com/discovery/v1/apis/drive/v3/rest
+2019-08-08 21:52:35,624 INFO In BackgroundProcessor.kickOff()
+2019-08-08 21:52:35,626 INFO GoogleDriveUploader.preWorkFunction()
+2019-08-08 21:52:35,626 INFO BackgroundProcessor.enqueue(): Number of data sets in 'data_queue' = [1]
+2019-08-08 21:52:35,626 INFO In BackgroundProcessors.kickOff() - Exiting.
+2019-08-08 21:52:35,627 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [1]
+2019-08-08 21:52:35,627 INFO GoogleDriveUploader.workFunction()...
+2019-08-08 21:52:35,696 INFO URL being requested: GET https://www.googleapis.com/drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.folder%27&fields=nextPageToken%2C+files%28id%2C+name%29&alt=json&spaces=drive
+2019-08-08 21:52:36,587 INFO GoogleDriveUploader.workFunction(): Uploading to folder: [NY-2018-2019], file: [/home/pi/git/photobooth/images/picture_24982438.jpg]...
+2019-08-08 21:52:40,634 INFO Exiting startBooth()
+2019-08-08 21:52:44,463 INFO onClose(): Cleaning up uploaders...
+2019-08-08 21:52:44,464 INFO BackgroundProcessor.enqueue(): Number of data sets in 'data_queue' = [2]
+2019-08-08 21:58:12,548 INFO --------------------------------
+2019-08-08 21:58:12,548 INFO ------STARTING PHOTOBOOTH-------
+2019-08-08 21:58:12,548 INFO --------------------------------
+2019-08-08 21:58:12,549 INFO sys.path=[['/home/pi/bin', '/usr/lib/python2.7', '/usr/lib/python2.7/plat-arm-linux-gnueabihf', '/usr/lib/python2.7/lib-tk', '/usr/lib/python2.7/lib-old', '/usr/lib/python2.7/lib-dynload', '/usr/local/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages/PILcompat', '/home/pi/git/photobooth', '/home/pi/git/photobooth/scripts', '/home/pi/git/photobooth/coregui', '/home/pi/git/photobooth/corecam']]
+2019-08-08 21:58:14,072 INFO In startBooth()...
+2019-08-08 21:58:18,922 INFO Calling CountdownText()...
+2019-08-08 21:58:20,953 INFO Back from CountdownText()
+2019-08-08 21:58:22,958 INFO In BoothCamera.capture(): resolution= 3280x2464, ISO=200, sharpness=60
+2019-08-08 21:58:24,370 INFO In archiveImage()...
+2019-08-08 21:58:24,371 INFO archive_dir: /home/pi/git/photobooth/images
+2019-08-08 21:58:24,372 INFO image_filename.ext: picture.jpg
+2019-08-08 21:58:24,373 INFO next_idx: 24982788
+2019-08-08 21:58:24,373 INFO new_filename: /home/pi/git/photobooth/images/picture_24982788.jpg
+2019-08-08 21:58:24,437 INFO In archiveImage(): Exiting...
+2019-08-08 21:58:24,480 INFO In displayImage():...
+2019-08-08 21:58:24,713 INFO Exiting displayImage()
+2019-08-08 21:58:24,714 INFO Upload to Picasa OFF in configuration
+2019-08-08 21:58:24,714 INFO Uploading to Google Drive...
+2019-08-08 21:58:24,715 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [0]
+2019-08-08 21:58:24,715 INFO BackgroundProcessor.run(): Nothing to upload; going to get some zzzzs
+2019-08-08 21:58:24,723 WARNING file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python2.7/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+2019-08-08 21:58:24,724 INFO URL being requested: GET https://www.googleapis.com/discovery/v1/apis/drive/v3/rest
+2019-08-08 21:58:25,409 INFO In BackgroundProcessor.kickOff()
+2019-08-08 21:58:25,410 INFO GoogleDriveUploader.preWorkFunction()
+2019-08-08 21:58:25,410 INFO BackgroundProcessor.enqueue(): Number of data sets in 'data_queue' = [1]
+2019-08-08 21:58:25,411 INFO In BackgroundProcessors.kickOff() - Exiting.
+2019-08-08 21:58:25,411 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [1]
+2019-08-08 21:58:25,411 INFO GoogleDriveUploader.workFunction()...
+2019-08-08 21:58:25,478 INFO URL being requested: GET https://www.googleapis.com/drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.folder%27&fields=nextPageToken%2C+files%28id%2C+name%29&alt=json&spaces=drive
+2019-08-08 21:58:26,716 INFO GoogleDriveUploader.workFunction(): Uploading to folder: [NY-2018-2019], file: [/home/pi/git/photobooth/images/picture_24982788.jpg]...
+2019-08-08 21:58:30,419 INFO Exiting startBooth()
+2019-08-08 21:58:32,546 INFO onClose(): Cleaning up uploaders...
+2019-08-08 21:58:32,547 INFO BackgroundProcessor.enqueue(): Number of data sets in 'data_queue' = [2]
+2019-08-08 22:01:26,290 INFO --------------------------------
+2019-08-08 22:01:26,291 INFO ------STARTING PHOTOBOOTH-------
+2019-08-08 22:01:26,291 INFO --------------------------------
+2019-08-08 22:01:26,291 INFO sys.path=[['/home/pi/bin', '/usr/lib/python2.7', '/usr/lib/python2.7/plat-arm-linux-gnueabihf', '/usr/lib/python2.7/lib-tk', '/usr/lib/python2.7/lib-old', '/usr/lib/python2.7/lib-dynload', '/usr/local/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages/PILcompat', '/home/pi/git/photobooth', '/home/pi/git/photobooth/scripts', '/home/pi/git/photobooth/coregui', '/home/pi/git/photobooth/corecam']]
+2019-08-08 22:01:29,396 INFO In startBooth()...
+2019-08-08 22:01:34,267 INFO Calling CountdownText()...
+2019-08-08 22:01:36,298 INFO Back from CountdownText()
+2019-08-08 22:01:38,303 INFO In BoothCamera.capture(): resolution= 3280x2464, ISO=200, sharpness=60
+2019-08-08 22:01:39,093 INFO In archiveImage()...
+2019-08-08 22:01:39,094 INFO archive_dir: /home/pi/git/photobooth/images
+2019-08-08 22:01:39,095 INFO image_filename.ext: picture.jpg
+2019-08-08 22:01:39,095 INFO next_idx: 24982983
+2019-08-08 22:01:39,096 INFO new_filename: /home/pi/git/photobooth/images/picture_24982983.jpg
+2019-08-08 22:01:39,165 INFO In archiveImage(): Exiting...
+2019-08-08 22:01:39,194 INFO In displayImage():...
+2019-08-08 22:01:39,424 INFO Exiting displayImage()
+2019-08-08 22:01:39,425 INFO Upload to Picasa OFF in configuration
+2019-08-08 22:01:39,435 INFO Uploading to Google Drive...
+2019-08-08 22:01:39,436 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [0]
+2019-08-08 22:01:39,437 INFO BackgroundProcessor.run(): Nothing to upload; going to get some zzzzs
+2019-08-08 22:01:39,445 WARNING file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python2.7/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+2019-08-08 22:01:39,447 INFO URL being requested: GET https://www.googleapis.com/discovery/v1/apis/drive/v3/rest
+2019-08-08 22:01:39,708 INFO In BackgroundProcessor.kickOff()
+2019-08-08 22:01:39,709 INFO GoogleDriveUploader.preWorkFunction()
+2019-08-08 22:01:39,710 INFO BackgroundProcessor.enqueue(): Number of data sets in 'data_queue' = [1]
+2019-08-08 22:01:39,710 INFO In BackgroundProcessors.kickOff() - Exiting.
+2019-08-08 22:01:39,710 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [1]
+2019-08-08 22:01:39,711 INFO GoogleDriveUploader.workFunction()...
+2019-08-08 22:01:39,786 INFO URL being requested: GET https://www.googleapis.com/drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.folder%27&fields=nextPageToken%2C+files%28id%2C+name%29&alt=json&spaces=drive
+2019-08-08 22:01:40,332 INFO GoogleDriveUploader.workFunction(): Uploading to folder: [NY-2018-2019], file: [/home/pi/git/photobooth/images/picture_24982983.jpg]...
+2019-08-08 22:01:44,720 INFO Exiting startBooth()
+2019-08-08 22:01:47,202 INFO onClose(): Cleaning up uploaders...
+2019-08-08 22:01:47,204 INFO BackgroundProcessor.enqueue(): Number of data sets in 'data_queue' = [2]
+2019-08-08 22:09:01,869 INFO --------------------------------
+2019-08-08 22:09:01,869 INFO ------STARTING PHOTOBOOTH-------
+2019-08-08 22:09:01,870 INFO --------------------------------
+2019-08-08 22:09:01,870 INFO sys.path=[['/home/pi/bin', '/usr/lib/python2.7', '/usr/lib/python2.7/plat-arm-linux-gnueabihf', '/usr/lib/python2.7/lib-tk', '/usr/lib/python2.7/lib-old', '/usr/lib/python2.7/lib-dynload', '/usr/local/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages/PILcompat', '/home/pi/git/photobooth', '/home/pi/git/photobooth/scripts', '/home/pi/git/photobooth/coregui', '/home/pi/git/photobooth/corecam']]
+2019-08-08 22:09:03,108 INFO In startBooth()...
+2019-08-08 22:09:07,981 INFO Calling CountdownText()...
+2019-08-08 22:09:10,023 INFO Back from CountdownText()
+2019-08-08 22:09:12,029 INFO In BoothCamera.capture(): resolution= 3280x2464, ISO=200, sharpness=60
+2019-08-08 22:09:12,825 INFO In archiveImage()...
+2019-08-08 22:09:12,826 INFO archive_dir: /home/pi/git/photobooth/images
+2019-08-08 22:09:12,826 INFO image_filename.ext: picture.jpg
+2019-08-08 22:09:12,827 INFO next_idx: 24983436
+2019-08-08 22:09:12,827 INFO new_filename: /home/pi/git/photobooth/images/picture_24983436.jpg
+2019-08-08 22:09:12,893 INFO In archiveImage(): Exiting...
+2019-08-08 22:09:12,931 INFO In displayImage():...
+2019-08-08 22:09:13,188 INFO Exiting displayImage()
+2019-08-08 22:09:13,189 INFO Upload to Picasa OFF in configuration
+2019-08-08 22:09:13,284 INFO Uploading to Google Drive...
+2019-08-08 22:09:13,285 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [0]
+2019-08-08 22:09:13,286 INFO BackgroundProcessor.run(): Nothing to upload; going to get some zzzzs
+2019-08-08 22:09:13,293 WARNING file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python2.7/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+2019-08-08 22:09:13,295 INFO URL being requested: GET https://www.googleapis.com/discovery/v1/apis/drive/v3/rest
+2019-08-08 22:09:13,543 INFO In BackgroundProcessor.kickOff()
+2019-08-08 22:09:13,544 INFO GoogleDriveUploader.preWorkFunction()
+2019-08-08 22:09:13,545 INFO BackgroundProcessor.enqueue(): Number of data sets in 'data_queue' = [1]
+2019-08-08 22:09:13,545 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [1]
+2019-08-08 22:09:13,545 INFO GoogleDriveUploader.workFunction()...
+2019-08-08 22:09:13,577 INFO In BackgroundProcessors.kickOff() - Exiting.
+2019-08-08 22:09:13,617 INFO URL being requested: GET https://www.googleapis.com/drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.folder%27&fields=nextPageToken%2C+files%28id%2C+name%29&alt=json&spaces=drive
+2019-08-08 22:09:14,499 INFO GoogleDriveUploader.workFunction(): Uploading to folder: [NY-2018-2019], thefile: [/home/pi/git/photobooth/images/picture_24983436.jpg]...
+2019-08-08 22:09:15,020 INFO URL being requested: POST https://www.googleapis.com/upload/drive/v3/files?fields=id&alt=json&uploadType=multipart
+2019-08-08 22:09:18,625 INFO Exiting startBooth()
+2019-08-08 22:09:19,468 INFO GoogleDriveUploader.workFunction(): DONE with [/home/pi/git/photobooth/images/picture_24983436.jpg]
+2019-08-08 22:09:19,469 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [0]
+2019-08-08 22:09:19,470 INFO BackgroundProcessor.run(): Nothing to upload; going to get some zzzzs
+2019-08-08 22:09:20,746 INFO onClose(): Cleaning up uploaders...
+2019-08-08 22:09:20,747 INFO BackgroundProcessor.enqueue(): Number of data sets in 'data_queue' = [1]
+2019-08-08 22:09:20,748 INFO BackgroundProcessor.run(): Awake now. Number of data sets in 'data_queue' = [1]
+2019-08-08 22:09:20,749 INFO Terminating thread...

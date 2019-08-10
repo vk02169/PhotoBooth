@@ -5,13 +5,17 @@ import logging
 import httplib2
 import credentials
 
-from backgroundupload       import BackgroundProcessor
+from thrmodel import BackgroundProcessor
 from util                   import *
 from camconfig              import Configurator
-from googledriveuploader    import GoogleDriveUploader
+#from googledriveuploader    import GoogleDriveUploader
 
 
-   
+##################################################################################################################################
+# Class: PicasaUploader
+# Singleton object that abstracts uploading files to Picasa. The class extends the BackgroundProcessor to ensure that all
+# uploading takes place in a background thread.
+##################################################################################################################################
 class PicasaUploader(BackgroundProcessor):
     
     __instance__= None
@@ -27,8 +31,10 @@ class PicasaUploader(BackgroundProcessor):
             raise Exception ("'PicasaUploader' is a Singleton object! Please use the 'instance()' method to get a reference.")
         else:
             super(PicasaUploader, self).__init__()
+            logging.info("PicasaUploader.__init__()...invoking initGoogleSetup()...")
             self.initGoogleSetup()
             PicasaUploader.__instance__= self
+            logging.info("PicasaUploader.__init__()...done initGoogleSetup()...")
 
     def initGoogleSetup(self):
 
@@ -38,17 +44,21 @@ class PicasaUploader(BackgroundProcessor):
         self.is_successful_signin = True            
         try:
             
-            print "Signing in to Google..."
+            logging.info ("Signing in to Picasa...")
             
             # Create a client class which will make HTTP requests with Google Docs server.
-            configdir = os.path.expanduser('./')
-            client_secrets = os.path.join(configdir, 'OpenSelfie.json')
+            #configdir = os.path.expanduser('./')
+            configdir = os.environ["PHOTOBOOTH_HOME"]+"/secrets/"
+            print ("CONFIG_DIR=%s"%configdir)
+            client_secrets = os.path.join(configdir, 'client_secret2019.json')
             credential_store = os.path.join(configdir, 'credentials.dat')
+
+            logging.info("initGoogleSetup(): Calling OAuth2Login() with username=[%s]"%credentials.username)
             self.client = credentials.OAuth2Login(client_secrets, credential_store, credentials.username)
             
-            logging.info("Successfully signed into Google!")
+            logging.info("Successfully signed into Picasa!")
             
-            print "Signed in"
+
             
         except KeyboardInterrupt as ki:
             printExceptionTrace("KeyboardInterrupt", ki)

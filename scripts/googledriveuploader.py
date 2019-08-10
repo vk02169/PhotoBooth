@@ -1,17 +1,27 @@
-import logging
-from pydrive.auth       import GoogleAuth
-from pydrive.drive      import GoogleDrive
-from backgroundupload   import BackgroundProcessor
+
+from auth import Authenticator
+from googleapiclient.http import MediaFileUpload
+from thrmodel   import BackgroundProcessor
 from camconfig          import Configurator
 
+import logging
+import os
 
 ##################################################################################################################################
 # Class: GoogleDriveUploader
 # Singleton object that abstracts uploading files to a GoogleDrive. The class extends the BackgroundProcessor to ensure that all
 # uploading takes place in a background thread.
+# Note that to successfully upload pictures to Google Drive, you need to do the following:
+#   1. Logon to console.developers.google.com with the login id of the google account that owns the drive
+#   2. Create a project
+#   3. Enable APIs for the project
+#       a. In this case the Drive API
+#       b. Go to the OAUTH consent screen. Fill in the application name
+#       c. Save credentials. This will generate a secrets file. Download that file to your application.
+#          Usually called client_secretsXXX.json
+#       d. Use the Authenticator class to get a handle to the DRIVE Python API and upload pictures
 ##################################################################################################################################
-class GoogleDriveUploader (BackgroundProcessor):
-
+class GoogleDriveUploader(BackgroundProcessor):
     __instance__ = None
 
     @staticmethod
@@ -19,16 +29,19 @@ class GoogleDriveUploader (BackgroundProcessor):
         if GoogleDriveUploader.__instance__ == None:
             GoogleDriveUploader()
         return GoogleDriveUploader.__instance__
-    
+
     def __init__(self):
         if GoogleDriveUploader.__instance__ != None:
             raise Exception("GoogleDriveUploader is a Singleton! Please use 'instance()' to get an object.")
         else:
             super(GoogleDriveUploader, self).__init__()
             GoogleDriveUploader.__instance__ = self
-            self.gauth=GoogleAuth()
-            self.gauth.LocalWebserverAuth()
-            self.drive=GoogleDrive(self.gauth)
+
+            try:
+                self.auth = Authenticator("client_secrets.json", "saved_creds.pickle")
+                self.drive_service = self.auth.getDriveService()
+            except Exception as e:
+                logging.error("Exception caught while initializing GoogleDrive: [" + e.message + "]")
 
     def preWorkFunction(self, data_array):
         logging.info("GoogleDriveUploader.preWorkFunction()")
@@ -45,41 +58,81 @@ class GoogleDriveUploader (BackgroundProcessor):
         logging.info("GoogleDriveUploader.workFunction()...")
 
         # Get name of folder to upload from configuration and...
-        folder = Configurator.instance().getGoogleDriveUploadFolder()
+        folder=Configurator.instance().getGoogleDriveUploadFolder()
         if folder == None:
-            raise Exception ("GoogleDriveUploader.workFunction(): Invalid Google Drive folder")
+            raise Exception("GoogleDriveUploader.workFunction(): Invalid Google Drive folder")
 
-        #...try to find the folder on google drive.
-        upload_folder_id = None
-        file_list = self.drive.ListFile({'q': "'root' in parents and trashed=false"}).GetList()
-        for file in file_list:
-            if file["title"] == folder: # Found folder to upload to...
-                upload_folder_id = file["id"]
-                break
-
+        # ...try to find the folder on google drive.
+        upload_folder_id = self.findFolder(folder)
         if upload_folder_id == None:
             raise Exception("Invalid folder: [%s]. Please create this folder on the drive." % (folder))
 
         # Iterate and upload. Simple.
-        for infilepath in files_array:
-            logging.info("GoogleDriveUploader.workFunction(): Uploading to folder: [%s], file: [%s]..." %(folder, infilepath))
-            handle = self.drive.CreateFile({"parents": [{"kind": "drive#fileLink", "id": upload_folder_id}]})
-            handle.SetContentFile(infilepath)
-            handle.Upload()
-            logging.info("GoogleDriveUploader.workFunction(): DONE with [%s]" %(infilepath))
+        for filepath in files_array:
+            logging.info("GoogleDriveUploader.workFunction(): Uploading to folder: [%s], thefile: [%s]..." % (folder, filepath))
+            self.upload(filepath, upload_folder_id)
+            logging.info("GoogleDriveUploader.workFunction(): DONE with [%s]" % (filepath))
 
     ##################################################################################################################################
 
+
+    ##################################################################################################################################
+    # upload()
+    # Uploads an incoming file to the folder specified
+    # The incoming folder_id represents the folder into which the file must be uploaded
+    ##################################################################################################################################
+    def upload(self, thefile, folder_id):
+        file_metadata = {
+                            'name': thefile,
+                            'parents': [folder_id]
+                        }
+        media = MediaFileUpload(thefile, mimetype='image/jpeg')
+        thefile = self.drive_service.files().create(body=file_metadata,
+                                            media_body=media,
+                                            fields='id').execute()
+
+
+    ##################################################################################################################################
+    # name - findFolder()
+    # Iterate through the list of drive folders and find the one that represents the incoming folder name
+    # return: Folder ID
+    ##################################################################################################################################
+    def findFolder(self, folder_name):
+        page_token = None
+
+        # Execute a query to look only for mimetype= 'folder'...
+        while True:
+            results = self.drive_service.files().list(q="mimeType='application/vnd.google-apps.folder'", # Look only for folders
+                                                  spaces='drive',
+                                                  fields='nextPageToken, files(id, name)',
+                                                  pageToken=page_token).execute()
+
+            #...and get the list of folders
+            folder_list = results.get('files', [])
+            for folder in folder_list: # Search for YOUR folder and...
+                if folder.get('name') == folder_name:
+                    id = folder.get('id')
+                    print ("ID for Folder:[%s] is [%s]" %(folder_name, id))
+                    return id #...return its ID
+
+            page_token = results.get('nextPageToken', None)
+            if page_token is None:
+                break
+
+##################################################################################################################################
+# name - main()
+# Standalone testing
+##################################################################################################################################
 def main():
     logfile = "gd.log"
-    logging.basicConfig( filename=logfile,
-                         level=logging.INFO,
-                         format='%(asctime)s %(levelname)s %(message)s')
+    logging.basicConfig(filename=logfile,
+                        level=logging.INFO,
+                        format='%(asctime)s %(levelname)s %(message)s')
+    os.environ["PHOTOBOOTH_HOME"] = "C:/Users/Behemoth/PycharmProjects/PhotoBooth2.0"
+    dl = GoogleDriveUploader.instance()
 
-    dl=GoogleDriveUploader.instance()
-    listar=[]
-    listar.append("/home/pi/git/photobooth/scripts/googledriveuploader.py")
-    dl.upload("NY-2018-2019", listar)
+    folder_id=dl.findFolder("RaspiTest")
+    dl.upload("C:\\Users\\Behemoth\\Pictures\\a.jpg", folder_id)
 
 if __name__ == "__main__":
     main()
