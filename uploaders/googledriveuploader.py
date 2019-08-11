@@ -1,8 +1,10 @@
 
 from auth import Authenticator
+from auth import getDriveService
 from googleapiclient.http import MediaFileUpload
 from thrmodel   import BackgroundProcessor
 from camconfig          import Configurator
+
 
 import logging
 import os
@@ -40,8 +42,9 @@ class GoogleDriveUploader(BackgroundProcessor):
         else:
             super(GoogleDriveUploader, self).__init__()
             GoogleDriveUploader.__instance__ = self
-            self.auth = Authenticator("client_secrets.json", "saved_creds.pickle")
-            self.drive_service = self.auth.getDriveService()
+            self.drive_service = auth.getDriveService("client_secrets.json")
+            #self.auth = Authenticator("client_secrets.json", "saved_creds.pickle")
+            #self.drive_service = self.auth.getDriveService()
 
     def preWorkFunction(self, data_array):
         logging.info("GoogleDriveUploader.preWorkFunction()")

@@ -1,4 +1,5 @@
 find . -type f -name '*.pyc' -delete
 find . -type f -name '*.jpg' -delete
+find . -type f -name 'photobooth.log' -delete
 sudo mv secrets/* /home/secrets
 
