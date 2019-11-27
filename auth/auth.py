@@ -85,7 +85,7 @@ class Authenticator:
         self.pickled_credentials_drive = None
         if self.existsFile(pickle_filename):
             logging.info("Authenticator.initAuthDrive(): Found existing pickled file in [%s]" % (self.secrets_dir))
-            file = open(self.pickle_filepath)
+            file = open(self.pickle_filepath, "rb") #...opening it in "rb" mode since the file was opened in "wb" mode while pickle.dump() below
             self.pickled_credentials_drive = pickle.load(file)
             if (self.pickled_credentials_drive == None):
                 raise Exception("Authenticator.initAuthDrive(): Unable to load pickled credentials from file")
@@ -104,7 +104,7 @@ class Authenticator:
                 logging.info("Authenticator.initAuthDrive(): Starting installed app flow...")
                 flow = InstalledAppFlow.from_client_secrets_file(self.secrets_dir + client_secrets_filename, SCOPES)
                 self.pickled_credentials_drive = flow.run_local_server(port=0)
-                logging.info("Authenticator.initAuthDrive(): Back from installed app flow...")
+                logging.info("Authenticator.initAuthDrive(): Back from installed app flow..." + str(self.pickled_credentials_drive))
 
             file = open(self.pickle_filepath, "wb")
             pickle.dump(self.pickled_credentials_drive,

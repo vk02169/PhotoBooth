@@ -2,18 +2,18 @@ from subprocess import call
 from camconfig  import Configurator
 from datetime   import datetime
 
-import ConfigParser
+import configparser
 import calendar
 import time
-import tkMessageBox
 import sys, traceback
 import os
 import logging
-import Tkinter
+from tkinter import *
+import tkinter.messagebox
 
 class CountdownText(object):
     
-    def __init__(self, text, font, fill, canvas, x, y, anchor=Tkinter.CENTER):
+    def __init__(self, text, font, fill, canvas, x, y, anchor=tkinter.CENTER):
         self.text=text
         self.font=font
         self.x=x
@@ -34,7 +34,7 @@ class CountdownText(object):
 
 class BlinkingText(object):
         
-    def __init__(self, text, font, fill, blink_freq, num_blinks, canvas, x, y, anchor=Tkinter.CENTER):
+    def __init__(self, text, font, fill, blink_freq, num_blinks, canvas, x, y, anchor=tkinter.CENTER):
         self.text=text
         self.font=font
         self.x=x
@@ -66,14 +66,14 @@ class BlinkingText(object):
 #  @return
 #  
 def printExceptionTrace(message, e):
-    print "!!EXCEPTION!! " + message
+    print ("!!EXCEPTION!! " + message)
     line = "-------------------------------------------------"
-    print line
+    print (line)
     if e is not None:
-        print type(e)
-        print e.args
-        print e
-    print line
+        print (type(e))
+        print (e.args)
+        print (e)
+    print (line)
     logging.error("!!EXCEPTION!! " + message)
     logging.error(line)
     if e is not None:
@@ -143,7 +143,7 @@ def archiveImage (image_filename):
 #############################################################################
 
 def messageBox(state, title, message):
-    tkMessageBox.showinfo(title, message)
+    messagebox.showinfo(title, message)
 #############################################################################
 
 

@@ -1,10 +1,9 @@
 #
 #  
-import ConfigParser
+import configparser
 import os
-import Tkinter
-import tkFileDialog
-import listalbums
+import tkinter
+import tkinter.filedialog
 import logging
 
 
@@ -106,41 +105,41 @@ class Configurator(object):
     # Save config changes to the prescribed configuration file.
     ##################################################################################################################################
     def onSave(self, *args):
-        conf = ConfigParser.ConfigParser()
+        conf = configparser.ConfigParser()
         conf.add_section(self.CONF_PHOTO_SECTION)
         conf.set(self.CONF_PHOTO_SECTION, self.OPTION_COUNTDOWN_TEXT,       self.countdown_text)
-        conf.set(self.CONF_PHOTO_SECTION, self.OPTION_NUMPICS,              self.num_pics)
+        conf.set(self.CONF_PHOTO_SECTION, self.OPTION_NUMPICS,              str(self.num_pics))
         conf.set(self.CONF_PHOTO_SECTION, self.OPTION_ARCHIVE_DIR,          self.pics_archive_dir)
-        conf.set(self.CONF_PHOTO_SECTION, self.OPTION_MOD_BASE,             self.mod_base)
-        conf.set(self.CONF_PHOTO_SECTION, self.OPTION_WIDTH,                self.screen_width)
-        conf.set(self.CONF_PHOTO_SECTION, self.OPTION_HEIGHT,               self.screen_height)
-        conf.set(self.CONF_PHOTO_SECTION, self.OPTION_SHOW_BUTTONS,         self.show_exit_configure_btns)
+        conf.set(self.CONF_PHOTO_SECTION, self.OPTION_MOD_BASE,             str(self.mod_base))
+        conf.set(self.CONF_PHOTO_SECTION, self.OPTION_WIDTH,                str(self.screen_width))
+        conf.set(self.CONF_PHOTO_SECTION, self.OPTION_HEIGHT,               str(self.screen_height))
+        conf.set(self.CONF_PHOTO_SECTION, self.OPTION_SHOW_BUTTONS,         str(self.show_exit_configure_btns))
 
         conf.add_section(self.CONF_CAMERA_SECTION)
-        conf.set(self.CONF_CAMERA_SECTION, self.OPTION_RESX,            self.resX)
-        conf.set(self.CONF_CAMERA_SECTION, self.OPTION_RESY,            self.resY)
+        conf.set(self.CONF_CAMERA_SECTION, self.OPTION_RESX,            str(self.resX))
+        conf.set(self.CONF_CAMERA_SECTION, self.OPTION_RESY,            str(self.resY))
         conf.set(self.CONF_CAMERA_SECTION, self.OPTION_BASE_IMG_EXT,    self.base_image_ext)
-        conf.set(self.CONF_CAMERA_SECTION, self.OPTION_PREVIEW_ALPHA,   self.preview_alpha)
-        conf.set(self.CONF_CAMERA_SECTION, self.OPTION_ISO,             self.iso)
-        conf.set(self.CONF_CAMERA_SECTION, self.OPTION_SHARPNESS,       self.sharpness)
+        conf.set(self.CONF_CAMERA_SECTION, self.OPTION_PREVIEW_ALPHA,   str(self.preview_alpha))
+        conf.set(self.CONF_CAMERA_SECTION, self.OPTION_ISO,             str(self.iso))
+        conf.set(self.CONF_CAMERA_SECTION, self.OPTION_SHARPNESS,       str(self.sharpness))
 
         conf.add_section(self.CONF_FLASH_SECTION)
-        conf.set(self.CONF_FLASH_SECTION, self.OPTION_FLASH,           self.is_flash_on)
-        conf.set(self.CONF_FLASH_SECTION, self.OPTION_FLASH_GPIO_PIN,  self.gpio_pin)
-        conf.set(self.CONF_FLASH_SECTION, self.OPTION_FLASH_ON_TIME,  self.flash_on_time)
+        conf.set(self.CONF_FLASH_SECTION, self.OPTION_FLASH,          str(self.is_flash_on))
+        conf.set(self.CONF_FLASH_SECTION, self.OPTION_FLASH_GPIO_PIN,  str(self.gpio_pin))
+        conf.set(self.CONF_FLASH_SECTION, self.OPTION_FLASH_ON_TIME,  str(self.flash_on_time))
 
         conf.add_section(self.CONF_UPLOAD_SECTION)
-        conf.set(self.CONF_UPLOAD_SECTION, self.OPTION_ALBUMID,             self.google_photos_album)
-        conf.set(self.CONF_UPLOAD_SECTION, self.OPTION_IS_UPLOAD_NEEDED,    self.is_upload_needed)
+        conf.set(self.CONF_UPLOAD_SECTION, self.OPTION_ALBUMID,             str(self.google_photos_album))
+        conf.set(self.CONF_UPLOAD_SECTION, self.OPTION_IS_UPLOAD_NEEDED,    str(self.is_upload_needed))
         conf.set(self.CONF_UPLOAD_SECTION, self.OPTION_GOOGLE_ACCT,         self.google_acct)
         conf.set(self.CONF_UPLOAD_SECTION, self.OPTION_DRIVE_FOLDER,        self.drive_folder)
-        conf.set(self.CONF_UPLOAD_SECTION, self.OPTION_UPLOAD_TO_DRIVE,     self.is_upload_to_drive)
-        conf.set(self.CONF_UPLOAD_SECTION, self.OPTION_UPLOAD_TO_PICASA,    self.is_upload_to_picasa)
+        conf.set(self.CONF_UPLOAD_SECTION, self.OPTION_UPLOAD_TO_DRIVE,     str(self.is_upload_to_drive))
+        conf.set(self.CONF_UPLOAD_SECTION, self.OPTION_UPLOAD_TO_PICASA,    str(self.is_upload_to_picasa))
 
         conf_filename = self.getCompleteConfFilename()
         f = open(conf_filename, 'w')
         conf.write(f)
-        print "Configfile written successfully!", f.name
+        print ("Configfile written successfully! [%s]" %(f.name))
         self.top.destroy()
         
     def onCancel(self, *args):
@@ -152,7 +151,7 @@ class Configurator(object):
     #  @return
     ##################################################################################################################################
     def displayConfigUI(self, main_win):
-        self.top = Tkinter.Toplevel(main_win)
+        self.top = tkinter.Toplevel(main_win)
        
         self.main_win = main_win        
         self.top.wm_title("Manage Configuration")
@@ -170,19 +169,19 @@ class Configurator(object):
  
         self.drawTextEntry( self.top,    "Google acct",  self.google_acct,    self.bindGoogleAcct, 30)
         frame, album_entry=self.drawTextEntry( self.top,    "Google album",  str(self.google_photos_album), self.bindAlbum, 15 )
-        Tkinter.Button(frame, text="Lookup...", command=lambda: self.onLookup(album_entry)).pack();
+        tkinter.Button(frame, text="Lookup...", command=lambda: self.onLookup(album_entry)).pack();
 
         self.drawFileBrowse(self.top,    "Archive dir",  self.pics_archive_dir,        self.bindArchive, 20, False )
 
-        buttonbox = Tkinter.Frame(self.top)
-        Tkinter.Button(buttonbox, text= "Save",   command=self.onSave).pack(side=Tkinter.LEFT)
-        Tkinter.Button(buttonbox, text= "Cancel", command=self.onCancel).pack(side=Tkinter.RIGHT)
+        buttonbox = tkinter.Frame(self.top)
+        tkinter.Button(buttonbox, text= "Save",   command=self.onSave).pack(side=tkinter.LEFT)
+        tkinter.Button(buttonbox, text= "Cancel", command=self.onCancel).pack(side=tkinter.RIGHT)
         buttonbox.pack()
 
     def onLookup(self, album_entry):
         logging.info("Calling listalbums with google_acct: [%s]"%self.google_acct)
-        self.albums = listalbums.getAlbums(self.google_acct)
-        listalbums.AlbumSelect(self.top, album_entry, self.albums)
+     #   self.albums = listalbums.getAlbums(self.google_acct)
+     #   listalbums.AlbumSelect(self.top, album_entry, self.albums)
 
     #        
     #  name: drawCheckBox
@@ -190,24 +189,24 @@ class Configurator(object):
     #  @return
     #  
     def drawCheckBox(self, top, label, initial_val, listener):
-        frame = Tkinter.Frame(top)
-        var = Tkinter.BooleanVar()
+        frame = tkinter.Frame(top)
+        var = tkinter.BooleanVar()
         var.set(initial_val)
-        checkbox = Tkinter.Checkbutton(self, text=label, variable=var)
+        checkbox = tkinter.Checkbutton(self, text=label, variable=var)
         var.trace('w', lambda *args:listener(var, checkbox))
         checkbox.pack()
         frame.pack()            
         
     def drawFileBrowse(self, top, label, initial_val, listener, w, is_browse_file):
-        frame = Tkinter.Frame(top)
-        var = Tkinter.StringVar()
+        frame = tkinter.Frame(top)
+        var = tkinter.StringVar()
         var.set(initial_val)
-        Tkinter.Label(frame, text=label).pack(padx=5, pady=5, side=Tkinter.LEFT)
-        entry = Tkinter.Entry(frame, textvariable=var, width=w)
-        entry.pack(padx=5, pady=5, side=Tkinter.LEFT)
+        tkinter.Label(frame, text=label).pack(padx=5, pady=5, side=tkinter.LEFT)
+        entry = tkinter.Entry(frame, textvariable=var, width=w)
+        entry.pack(padx=5, pady=5, side=tkinter.LEFT)
         var.trace('w', lambda * args: listener(var, entry))
-        Tkinter.Button(frame, text='Browse', command=lambda: self.drawArchiveDialog(var, is_browse_file)).pack(side=Tkinter.LEFT)
-        frame.pack(side=Tkinter.TOP)
+        tkinter.Button(frame, text='Browse', command=lambda: self.drawArchiveDialog(var, is_browse_file)).pack(side=tkinter.LEFT)
+        frame.pack(side=tkinter.TOP)
 
     ##################################################################################################################################
     #  name: drawArchiveDialog
@@ -233,12 +232,12 @@ class Configurator(object):
     #  Utility method to create a text entry widget and register the incoming listener to it.
     ##################################################################################################################################
     def drawTextEntry(self, top, label, initial_val, listener, w):
-        frame = Tkinter.Frame(top)
-        var =   Tkinter.StringVar()
+        frame = tkinter.Frame(top)
+        var =   tkinter.StringVar()
         var.set(initial_val)
-        Tkinter.Label(frame, text=label).pack(padx=5, pady=5, side=Tkinter.LEFT)
-        entry = Tkinter.Entry(frame, textvariable=var, width=w)
-        entry.pack(padx=5, pady=5, side=Tkinter.RIGHT)
+        tkinter.Label(frame, text=label).pack(padx=5, pady=5, side=tkinter.LEFT)
+        entry = tkinter.Entry(frame, textvariable=var, width=w)
+        entry.pack(padx=5, pady=5, side=tkinter.RIGHT)
         var.trace('w', lambda *args:listener(var, entry))
         frame.pack()
         return frame, entry
@@ -278,11 +277,11 @@ class Configurator(object):
     ##################################################################################################################################
     def loadConfFromFile(self):
         try:
-            print "loadConfFromFile(): Reading from: " + self.getCompleteConfFilename()
+            print ("loadConfFromFile(): Reading from: [%s]" % (self.getCompleteConfFilename()))
             
             self.setConfigDefaults()
 
-            conf = ConfigParser.ConfigParser();
+            conf = configparser.ConfigParser();
             conf.read(self.getCompleteConfFilename())
             
             readstream = conf.read(self.getCompleteConfFilename())
@@ -320,11 +319,11 @@ class Configurator(object):
             self.is_upload_to_picasa = (s.lower() == "True".lower())
 
 
-        except ConfigParser.Error, err:
-            print "loadConfFromFile(): ConfigParser exception!", err
+        except (configparser.Error, err):
+            print("loadConfFromFile(): ConfigParser exception! " + err)
             
-        except IOError, err:
-            print "loadConfFromFile(): IOError exception!", err
+        except (IOError, err):
+            print ("loadConfFromFile(): IOError exception!" + err)
 
     ##################################################################################################################################
     # Constructor - implements the singleton pattern

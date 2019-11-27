@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 
 button_labels = ['`1234567890-=',
                  'qwertyuiop[]\\',
@@ -212,7 +212,7 @@ class Tkkb:
 def main():
     r = Tk()
     def onEnter():
-        print 'Enter Pressed'
+        print ('Enter Pressed')
     entry = Entry(r, width=20, font=fontsize)
     entry.pack()
 

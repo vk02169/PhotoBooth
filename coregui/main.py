@@ -7,13 +7,13 @@
 
 #Imports
 import time
-import tkMessageBox
+import tkinter.messagebox
 import logging
 import PIL
 import sys
 
 from PIL            import ImageTk
-from Tkinter        import *
+from tkinter        import *
 
 from corecam        import getCamera
 from corecam        import BoothCamera
@@ -103,7 +103,7 @@ def startCountdown(camera, canvas, countdown_text="Smile!"):
                   fill="purple",
                   x=WIDTH/2, 
                   y=HEIGHT/2+TEXT_HEIGHT_OFFSET,
-                  anchor=Tkinter.CENTER)
+                  anchor=tkinter.CENTER)
                   
     logging.info("Back from CountdownText()")
     clearCanvas(canvas, "text")
@@ -156,7 +156,7 @@ def startBooth():
                             num_blinks=3,
                             canvas=img_display_canvas,
                             x=WIDTH/2, y=HEIGHT/2+TEXT_HEIGHT_OFFSET,
-                            anchor=Tkinter.CENTER)
+                            anchor=tkinter.CENTER)
 
         
             #Count it down and...

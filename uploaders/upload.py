@@ -1,4 +1,4 @@
-from picasauploader         import PicasaUploader
+#from picasauploader         import PicasaUploader
 from googledriveuploader    import GoogleDriveUploader
 from camconfig              import Configurator
 import logging
@@ -19,9 +19,9 @@ def uploadImages(picsarray):
     config= Configurator.instance()
     if config.isUploadToPicasa():
         logging.info("Uploading to Picasa...")
-        if picasa_uploader == None:
-            picasa_uploader = PicasaUploader.instance()
-        picasa_uploader.kickOff(picsarray)
+ #       if picasa_uploader == None:
+  #          picasa_uploader = PicasaUploader.instance()
+   #     picasa_uploader.kickOff(picsarray)
     else:
         logging.info("Upload to Picasa OFF in configuration")
 
