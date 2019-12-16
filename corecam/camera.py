@@ -76,19 +76,22 @@ class BoothCamera(PiCamera):
         try:
             config = Configurator.instance();
             imagefile = config.getDefaultImageFilename()
+            install_dir = config.getInstallDir()
+
+            imagefilepath = install_dir+"/" + imagefile
 
             # Get flash object...
             flash = CameraFlash.instance()
             flash.fireFlash()#...and fire flash ON
 
             time.sleep(config.getFlashOnTime())
-            self.capture(imagefile)
+            self.capture(imagefilepath)
 
             # Turn flash off
             flash.flashOff()
 
-            new_filename = archiveImage(imagefile)
-            return new_filename
+            new_filename, fun_filename = archiveImage(imagefilepath)
+            return new_filename, fun_filename
 
         except Exception as e:
             printExceptionTrace("BoothCamera.snap(): exception! ", e)

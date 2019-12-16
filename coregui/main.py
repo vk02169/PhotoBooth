@@ -137,6 +137,9 @@ def startBooth():
     global picsarray
     picsarray=[] #reset
 
+    global funpicsarray
+    funpicsarray=[] #reset
+
     try:
         camera = getCamera()
         clearCanvas(img_display_canvas)
@@ -163,7 +166,9 @@ def startBooth():
             startCountdown(camera, img_display_canvas, countdown_text=config.getCountdownText())
 
             #...snap the picture. Add it to the list of images and then...
-            picsarray.append( camera.snap() )
+            new_filename, fun_filename = camera.snap()
+            funpicsarray.append(fun_filename)
+            picsarray.append( new_filename )
             if picsarray[i] is None:
                 messageBox("Error", "Error", "No pictures were taken!")
                 break
@@ -177,9 +182,13 @@ def startBooth():
 
         # ...display and...
         displayImages(picsarray)
-
         # ...upload
         uploadImages(picsarray)
+        time.sleep(5) # Arbitrary time to allow people to view thumbnail(s)
+
+        #Do the same with the FX pics
+        displayImages(funpicsarray)
+        uploadImages(funpicsarray)
         time.sleep(5) # Arbitrary time to allow people to view thumbnail(s)
 
         clearCanvas(img_display_canvas, "all");       

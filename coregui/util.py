@@ -107,11 +107,32 @@ class UniqueIndex(object):
             
     def getNextIndex(self):
         return calendar.timegm(time.gmtime()) % ( Configurator.instance().getModuloBaseline() )
-     
+
+def funStuff(sourceimage, idx):
+    logging.info("In funStuff()...")
+
+    config = Configurator.instance()
+    archive_dir = config.getArchiveFolder()
+    ext = config.getBaseImageExt()
+
+    if os.path.exists(archive_dir) and os.path.exists(sourceimage):
+        out_filename = archive_dir + "/" + '%s_%s.%s' % ("picture", "fun_"+str(idx),ext)
+        #out_filename = '%s_%s.%s' % (image_filename[:-4], "fun_"+str(idx),ext)
+        logging.info("out_filename: " + out_filename)
+        install_dir = config.getInstallDir()
+        cmd = config.getFunCMD()
+        cmd = install_dir + "/scripts/" + cmd + " " + sourceimage + " " + out_filename
+        logging.info("FunCMD: " + cmd)
+
+        os.system(cmd)
+
+    logging.info("In funStuff(): Exiting...")
+    return out_filename
+
 
 #  
 #  name: archiveImage - Archives the incoming image into the archive directory after appending a unique suffix
-#  @param
+#  @param - image_filename: Full path + filename of source image
 #  @return
 #  
 def archiveImage (image_filename):
@@ -121,22 +142,24 @@ def archiveImage (image_filename):
     config = Configurator.instance()
     archive_dir = config.getArchiveFolder()
     ext = config.getBaseImageExt()
-   
-   
+
     next_idx = UniqueIndex.instance().getNextIndex()
     
     logging.info("archive_dir: "    + archive_dir)
-    logging.info("image_filename.ext: " + image_filename)
+    logging.info("image_filepath.ext: " + image_filename)
     logging.info("next_idx: " + str(next_idx))
 
     if os.path.exists(archive_dir) and os.path.exists(image_filename):
-        new_filename = os.path.join(archive_dir, '%s_%s.%s' % (image_filename[:-4], str(next_idx), ext))
+        new_filename = archive_dir+"/"+'%s_%s.%s' % ("picture", str(next_idx), ext)
         logging.info("new_filename: " + new_filename)
         command = (['cp', image_filename, new_filename])
         call(command)
-        
+
+    fun_filename = funStuff(image_filename, next_idx)
+
     logging.info("In archiveImage(): Exiting...")
-    return new_filename
+
+    return new_filename, fun_filename
 
 #############################################################################
 # messageBox() - For debugging

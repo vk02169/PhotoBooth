@@ -27,6 +27,9 @@ class Configurator(object):
     
     conf_filename = "vkphotobooth.conf"
 
+    CONF_FUN_SECTION = "FUN_STUFF"
+    FUN_CMD = "fun_cmd"
+
     # Various configuration options
     CONF_PHOTO_SECTION  = "PHOTO"
     OPTION_COUNTDOWN_TEXT = "countdown_text"
@@ -248,6 +251,7 @@ class Configurator(object):
     #  @return - none
     ##################################################################################################################################
     def setConfigDefaults(self):
+        self.fun_cmd = ""
         self.google_photos_album=-1
         self.countdown_text = "Smile!"
         self.num_pics = 4
@@ -287,7 +291,9 @@ class Configurator(object):
             readstream = conf.read(self.getCompleteConfFilename())
             if readstream == []:
                 raise IOError ("Unable to find configuration file: " +      self.getCompleteConfFilename())
-            
+
+            self.fun_cmd = conf.get(self.CONF_FUN_SECTION, self.FUN_CMD)
+
             self.countdown_text      = conf.get(self.CONF_PHOTO_SECTION,            self.OPTION_COUNTDOWN_TEXT)
             self.num_pics           = int(conf.get(self.CONF_PHOTO_SECTION,         self.OPTION_NUMPICS))
             self.pics_archive_dir   =   conf.get(self.CONF_PHOTO_SECTION,           self.OPTION_ARCHIVE_DIR)
@@ -342,6 +348,9 @@ class Configurator(object):
     ##################################################################################################################################
     # Various gettor methods
     ##################################################################################################################################
+    def getFunCMD(self):
+        return self.fun_cmd
+
     def getDefaultImageFilename(self):
         return "picture." + self.base_image_ext
    
