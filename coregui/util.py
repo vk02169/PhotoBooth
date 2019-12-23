@@ -1,7 +1,9 @@
 from subprocess import call
 from camconfig  import Configurator
 from datetime   import datetime
+from resizeimage import resizeimage
 
+import PIL
 import configparser
 import calendar
 import time
@@ -108,19 +110,33 @@ class UniqueIndex(object):
     def getNextIndex(self):
         return calendar.timegm(time.gmtime()) % ( Configurator.instance().getModuloBaseline() )
 
+def resizeImage(sourceimage):
+    logging.info("In resizeImage...")
+    config = Configurator.instance()
+    install_dir = config.getInstallDir()
+    image = PIL.Image.open(sourceimage)
+    cover = resizeimage.resize_cover(image, [800, 480])
+    cover.save(install_dir+"/res_picture.jpg", image.format)
+    logging.info("Resized image successfully!")
+    return install_dir+"/res_picture.jpg"
+
 def funStuff(sourceimage, idx):
     logging.info("In funStuff()...")
-
     config = Configurator.instance()
+    cmd = config.getFunCMD()
+    if cmd == None or cmd == "pass":
+        return None
+    sourceimage = resizeImage(sourceimage)
     archive_dir = config.getArchiveFolder()
     ext = config.getBaseImageExt()
 
     if os.path.exists(archive_dir) and os.path.exists(sourceimage):
+
         out_filename = archive_dir + "/" + '%s_%s.%s' % ("picture", "fun_"+str(idx),ext)
         #out_filename = '%s_%s.%s' % (image_filename[:-4], "fun_"+str(idx),ext)
         logging.info("out_filename: " + out_filename)
         install_dir = config.getInstallDir()
-        cmd = config.getFunCMD()
+
         cmd = install_dir + "/scripts/" + cmd + " " + sourceimage + " " + out_filename
         logging.info("FunCMD: " + cmd)
 

@@ -167,7 +167,9 @@ def startBooth():
 
             #...snap the picture. Add it to the list of images and then...
             new_filename, fun_filename = camera.snap()
-            funpicsarray.append(fun_filename)
+            if fun_filename is not None:
+                funpicsarray.append(fun_filename)
+
             picsarray.append( new_filename )
             if picsarray[i] is None:
                 messageBox("Error", "Error", "No pictures were taken!")
@@ -187,9 +189,10 @@ def startBooth():
         time.sleep(5) # Arbitrary time to allow people to view thumbnail(s)
 
         #Do the same with the FX pics
-        displayImages(funpicsarray)
-        uploadImages(funpicsarray)
-        time.sleep(5) # Arbitrary time to allow people to view thumbnail(s)
+        if len(funpicsarray) > 0:
+            displayImages(funpicsarray)
+            uploadImages(funpicsarray)
+            time.sleep(5) # Arbitrary time to allow people to view thumbnail(s)
 
         clearCanvas(img_display_canvas, "all");       
         logging.info("Exiting startBooth()")
