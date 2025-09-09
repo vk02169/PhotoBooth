@@ -1,0 +1,1 @@
+# PhotoBooth Test Suite
